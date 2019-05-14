@@ -58,19 +58,27 @@
   color: #999;
 }
 
+
     </style>
 </head>
 <body>
-{% for post in posts %}
-<div class="container">
-    <p>{{ post.text|linebreaksbr }}</p>
-    <span class="time-right">published: {{ post.post_date }}</span>
+<div class="chat">
+    {% for post in posts %}
+    <div class="container">
+        <p>{{ post.text|linebreaksbr }}</p>
+        <span class="time-right">Sent: {{ post.post_date }}</span>
+    </div>
+    {% endfor %}
 </div>
-<!--<div>-->
-<!--    <p>published: {{ post.post_date }}</p>-->
-<!--    <h1><a href="">{{ post.title }}</a></h1>-->
-<!--    <p>{{ post.text|linebreaksbr }}</p>-->
-<!--</div>-->
-{% endfor %}
+<div>
+    {% block content %}
+    <h1>New message</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        <textarea class="form-control rounded-3" id="text" name="text" rows="3"></textarea>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    {% endblock %}
+</div>
+
 </body>
 </html>
