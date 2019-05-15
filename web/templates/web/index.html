@@ -7,59 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{% static 'css/web.css' %}">
-    <style>
-        body {
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 0 20px;
-}
+    <link rel="stylesheet" href="{% static '/css/web.css' %}">
 
-.container {
-  border: 2px solid #dedede;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  padding: 10px;
-  margin: 10px 0;
-}
-
-.darker {
-  border-color: #ccc;
-  background-color: #ddd;
-}
-
-.container::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-.container img {
-  float: left;
-  max-width: 60px;
-  width: 100%;
-  margin-right: 20px;
-  border-radius: 50%;
-}
-
-.container img.right {
-  float: right;
-  margin-left: 20px;
-  margin-right:0;
-}
-
-.time-right {
-  float: right;
-  color: #aaa;
-}
-
-.time-left {
-  float: left;
-  color: #999;
-}
-
-
-    </style>
 </head>
 <body>
 <div class="chat">
@@ -72,10 +21,10 @@
 </div>
 <div>
     {% block content %}
-    <h1>New message</h1>
+    <h2>New message</h2>
     <form method="POST" class="post-form">{% csrf_token %}
         <textarea class="form-control rounded-3" id="text" name="text" rows="3"></textarea>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary">Отправить</button>
     </form>
     {% endblock %}
 </div>
